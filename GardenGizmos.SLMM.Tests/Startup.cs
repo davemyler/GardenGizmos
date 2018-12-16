@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
-namespace GardenGizmos.SLMM
+namespace GardenGizmos.SLMM.Tests
 {
     public class Startup
     {
@@ -20,19 +21,32 @@ namespace GardenGizmos.SLMM
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var mowingMachine = new MowingMachine(new SleepTimer()) { Position = new Position() };
-            Configuration.GetSection("MowingMachine").Bind(mowingMachine);
+            var mowingMachine = new MowingMachine(TestTimer.Instance) {
+                Orientation = "North",
+                Position = new Position()
+                {
+                    Length = 0,
+                    Width = 0
+                }
+            };
             services.AddSingleton(mowingMachine);
 
-            var lawn = new Lawn();
-            Configuration.GetSection("Lawn").Bind(lawn);
+            var lawn = new Lawn()
+            {
+                Length = 5,
+                Width = 5
+            };
             services.AddSingleton(lawn);
 
             var navigator = new Navigator(mowingMachine, lawn);
             navigator.StartNavigation();
             services.AddSingleton(navigator);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            var controllersAssembly = Assembly.Load(new AssemblyName("GardenGizmos.SLMM"));
+            services.AddMvc()
+                    .AddApplicationPart(controllersAssembly)
+                    .AddControllersAsServices()
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

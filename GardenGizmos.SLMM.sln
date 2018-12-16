@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenGizmos.SLMM", "GardenGizmos.SLMM\GardenGizmos.SLMM.csproj", "{29F2F62F-6ED8-48B1-A96F-3A04FB0C6F1D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C9AB2A19-92DB-4D03-8ACE-1C876FAF24FC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GardenGizmos.SLMM.Tests", "GardenGizmos.SLMM.Tests\GardenGizmos.SLMM.Tests.csproj", "{A24C22F1-4519-4789-8391-1EC5ED496252}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{29F2F62F-6ED8-48B1-A96F-3A04FB0C6F1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F2F62F-6ED8-48B1-A96F-3A04FB0C6F1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F2F62F-6ED8-48B1-A96F-3A04FB0C6F1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24C22F1-4519-4789-8391-1EC5ED496252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A24C22F1-4519-4789-8391-1EC5ED496252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A24C22F1-4519-4789-8391-1EC5ED496252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A24C22F1-4519-4789-8391-1EC5ED496252}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
